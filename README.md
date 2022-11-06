@@ -176,3 +176,18 @@ Nuestro objetivo es definir una API para gestionar nuestro equipo Pekémon.
 - Eliminar Pokémon: DELETE /team/pokemons/:id
 - Intercambiar el orden de nuestros pokémon: PUT /team (Este es tricky porque REST se refiere solo a entidades, pero esto es una acción no una consulta).
 - Sistema de credenciales
+
+
+## Testing
+
+Tenemos estas librerías:
+- Mocha: https://mochajs.org/ Nos da el entorno sobre el que implementar los tests.
+- Chai: https://www.chaijs.com/ Nos permite realizar las pruebas en sí mismas.
+
+Para instalarlos usar `npm install -D mocha chai`. El `-D` es para que sea en el entorno de desarrollo.
+
+Tipos de tests:
+- Un test unitario simplemente comprueba una funcionalidad concreta, una parte del programa
+- End to End: Simula ser una persona externa, entonces se utiliza el código enter.
+
+Una vez añadidos los tests y actualizado el package.json con la ruta a `mocha`, poedmos ejecutarlos todos con `npm run test`.
