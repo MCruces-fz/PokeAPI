@@ -157,3 +157,22 @@ Ejemplo gracioso
 En el directorio de trabajo ejecutamos `npm init` y a continuación instalamos `npm install express` que es la librer'ia que nos permite desarrollar utilizando el protocolo HTTP. Nos permite crear endpoints, permite también consultar el trafico que recibimos en esos endpoints con unas requests etc.
 
 Con `node app.js` comenzamos a escuchar en el puerto 3000 de localhost.
+
+## Definiendo las URL
+
+### Objetivo
+Nuestro objetivo es definir una API para gestionar nuestro equipo Pekémon.
+
+### Acciones
+- Identificarnos
+- Añadir pokémon de nuestro equipo.
+- Eliminar pokémon de nuestro equipo.
+- Consultar información de nuestro equipo.
+- Intercambiar el orden de nuestros Pokémon.
+
+### REST Design
+- Añadir Pokémon al equipo: POST /team/pokemons
+- Consultar Equipo: GET /team
+- Eliminar Pokémon: DELETE /team/pokemons/:id
+- Intercambiar el orden de nuestros pokémon: PUT /team (Este es tricky porque REST se refiere solo a entidades, pero esto es una acción no una consulta).
+- Sistema de credenciales

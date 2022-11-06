@@ -9,6 +9,28 @@ app.get('/', (req, res) => {
     res.status(200).send('Hello World!');
 });
 
+
+// Añadir un pokemon al equipo
+app.post('/team/pokemons', () => {
+    res.status(200).send('Hello POST!');
+});
+
+// Consultar equipo
+app.get('/team', () => {
+    res.status(200).send('Hello GET!');
+});
+
+// Eliminar un pokemon del equipo
+app.delete('/team/pokemons/:pokeid', () => {
+    res.status(200).send('Hello DELETE!');
+});
+
+// Intercambiar el orden de nuestros pokemon
+app.put('/team', () => {
+    res.status(200).send('Hello PUT!');
+});
+
+
 app.listen(port, () => {
     console.log('Server started at port 3000.');
 });
