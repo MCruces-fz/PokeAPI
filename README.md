@@ -200,6 +200,16 @@ La autenticación es el nombre que tiene todo el flujo de procesos de cualquier 
 
 Esto es necesario para definir qué usuarios tienen qué equipos pokémon y que estos puedan sólo modificar su propio equipo.
 
-Para implementar la autenticación utilizaremos Passport.
+Para implementar la autenticación utilizaremos Passport. Se instala con `npm install -s passport-jwt` utilizando el flag `-s` para guardarla como dependencia normal.
 
-Para codificar esta información de autenticación utilizaremos JWT (Json Web Token) que es un estándar que nos permite codificar información de usuario (nombre de usuario, correo...) en un string. Se puede ver un ejemplo visitando la web [jwt.io](jwt.io).
+Para codificar esta información de autenticación utilizaremos JWT (Json Web Token) que es un estándar que nos permite codificar información de usuario (nombre de usuario, correo...) en un string. Se puede ver un ejemplo visitando la web [jwt.io](https://jwt.io).
+
+En esta función de ejemplo vemos que el GET va llamando a las diferentes funciones por orden en el ENDPOINT `/team`
+```js
+app.get('/team', // ENDPOINT
+    passport.authenticate('jwt', {session: false}), // MIDDLEWAREs de la librería para autenticar
+    (req, res) => { // HANDLER
+        res.status(200).send('Hello GET!');
+});
+```
+primero llama a la función authenticate de la librería passport que toma como parámetros `req, res, next`. El parámetro `next` es el que se recibe para pasar a la siguiente función. El HANDLER final está implementada por nosotros y también tiene esos tres parámetros, pero el `next` será `null` por eso puede obviarse.

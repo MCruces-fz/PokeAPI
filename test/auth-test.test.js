@@ -1,6 +1,5 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const { describe } = require('node:test');
 
 chai.use(chaiHttp);
 
