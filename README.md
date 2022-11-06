@@ -149,3 +149,11 @@ Descripción detallada en developer.mozilla.org/es/docs/Web/HTTP/Status.
 
 Ejemplo gracioso
 - 418 I'm a teapot: Es un meme, un easteregg. Significa que el servidor no quiere hacerte café con una tetera.
+
+# Creando la API
+
+## Preparaciones iniciales
+
+En el directorio de trabajo ejecutamos `npm init` y a continuación instalamos `npm install express` que es la librer'ia que nos permite desarrollar utilizando el protocolo HTTP. Nos permite crear endpoints, permite también consultar el trafico que recibimos en esos endpoints con unas requests etc.
+
+Con `node app.js` comenzamos a escuchar en el puerto 3000 de localhost.
