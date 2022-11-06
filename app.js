@@ -34,3 +34,6 @@ app.put('/team', () => {
 app.listen(port, () => {
     console.log('Server started at port 3000.');
 });
+
+// Exportamos app para poder ofrecer este objeto a cualquier módulo externo
+exports.app = app;

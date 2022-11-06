@@ -184,10 +184,12 @@ Tenemos estas librerías:
 - Mocha: https://mochajs.org/ Nos da el entorno sobre el que implementar los tests.
 - Chai: https://www.chaijs.com/ Nos permite realizar las pruebas en sí mismas.
 
-Para instalarlos usar `npm install -D mocha chai`. El `-D` es para que sea en el entorno de desarrollo.
+Para instalarlos usar `npm install -D mocha chai`. El `-D` es para que sea como dependendia en el entorno de desarrollo.
 
 Tipos de tests:
 - Un test unitario simplemente comprueba una funcionalidad concreta, una parte del programa
 - End to End: Simula ser una persona externa, entonces se utiliza el código enter.
 
 Una vez añadidos los tests y actualizado el package.json con la ruta a `mocha`, poedmos ejecutarlos todos con `npm run test`.
+
+Para instalar chai-http usamos `npm install -D chai-http`.
