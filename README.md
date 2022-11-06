@@ -213,3 +213,7 @@ app.get('/team', // ENDPOINT
 });
 ```
 primero llama a la función authenticate de la librería passport que toma como parámetros `req, res, next`. El parámetro `next` es el que se recibe para pasar a la siguiente función. El HANDLER final está implementada por nosotros y también tiene esos tres parámetros, pero el `next` será `null` por eso puede obviarse.
+
+### Autenticación
+
+Para los identificadores de usuario necesitaríamos esta librería `npm install -s uuid` que sirve para crear identificadores únicos. Para encriptar las contraseñas de los usuarios utilizamos `npm install -s bcrypt`.

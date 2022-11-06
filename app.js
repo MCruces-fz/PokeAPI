@@ -1,13 +1,17 @@
 const express = require('express');
 const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const usersController = require('./controllers/users.js');
+const { runInNewContext } = require('vm');
 require('./auth')(passport); // funcion passport de auth.js exportada
 
 const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-    // req es la request
-    // res es la response
+    /* req es la request
+     * res es la response
+     */
     // console.log(req);
     res.status(200).send('Hello World!');
 });
@@ -19,9 +23,20 @@ app.post('/login', (req, res) => {
      - Si no son válidas, error
      - Si son válidas, generamos un JWT y lo devolvemos.
     */
-    res.status(200).json( // body
-        {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.zX5MPQtbjoNAS7rpsx_hI7gqGIlXOQq758dIqyBVxxY'}
-    )
+    usersController.checkUserCredentials(req.body.user, req.body.password, (err, result) => {
+        // Si no son validas mandamos error
+        if (!result) {
+            return res.status(401).json({message: 'Invalid credentials'});
+        }
+        // Si son validas generamos un JWT
+        const token = jwt.sign({userId: req.body.user})
+        res.status(200).json( // body
+            {token: token}
+        )
+    })
+    // res.status(200).json( // body
+    //     {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.zX5MPQtbjoNAS7rpsx_hI7gqGIlXOQq758dIqyBVxxY'}
+    // )
 });
 
 // Añadir un pokemon al equipo
