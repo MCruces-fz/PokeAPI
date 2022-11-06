@@ -16,7 +16,7 @@ app.post('/team/pokemons', () => {
 });
 
 // Consultar equipo
-app.get('/team', () => {
+app.get('/team', (req, res) => {
     res.status(200).send('Hello GET!');
 });
 

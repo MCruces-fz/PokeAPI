@@ -192,4 +192,14 @@ Tipos de tests:
 
 Una vez añadidos los tests y actualizado el package.json con la ruta a `mocha`, poedmos ejecutarlos todos con `npm run test`.
 
-Para instalar chai-http usamos `npm install -D chai-http`.
+Para instalar chai-http usamos `npm install -D chai-http`. Esto nos hace falta para los tests e2e.
+
+### Testeando la autenticación
+
+La autenticación es el nombre que tiene todo el flujo de procesos de cualquier sistema informático para determinar cuál es el usuario que está haciendo la acción. No confundir con autorización, ya que esta determina si un usuario (autenticado) puede o no realizar una acción (si tiene permisos). La autenticación lo que hace es determinar quién es ese usuario. Van en conjunto.
+
+Esto es necesario para definir qué usuarios tienen qué equipos pokémon y que estos puedan sólo modificar su propio equipo.
+
+Para implementar la autenticación utilizaremos Passport.
+
+Para codificar esta información de autenticación utilizaremos JWT (Json Web Token) que es un estándar que nos permite codificar información de usuario (nombre de usuario, correo...) en un string. Se puede ver un ejemplo visitando la web [jwt.io](jwt.io).
